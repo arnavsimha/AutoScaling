@@ -20,6 +20,9 @@ public class autoScaling {
         scaledUp = true;
         external_workers_added += 1;
       }
+      if(external_workers_added > 8){
+        continue;
+      }
     }
     return scaledUp;
   }
