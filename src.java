@@ -1,5 +1,7 @@
 public class autoScaling {
   //set up two LinkedLists holding internal workers and external workers
+  DirectorClient client = new SpringDirectorClientBuilder();
+  
   public static boolean scaleUP(){
     boolean scaledUp = false
     int external_workers_added = 0
