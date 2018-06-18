@@ -1,8 +1,15 @@
+package atcapi;
+package atcapi.model;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
 public class autoScaling {
   //set up two LinkedLists holding internal workers and external workers
   DirectorClient client = new SpringDirectorClientBuilder();
+  ATC atc = new ATC();
   
-  public static boolean scaleUP(){
+  public static boolean scaleUp(){
     boolean scaledUp = false
     int external_workers_added = 0
     int index = 0;
@@ -35,4 +42,11 @@ public class autoScaling {
       scaledDown = true;
     }
     return scaledDown;
+  }
+  
+  public static void main(String args[])
+  {
+    atc.scaleUp();
+    
+    
           
