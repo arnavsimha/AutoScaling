@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class autoScaling {
   //set up two LinkedLists holding internal workers and external workers
   DirectorClient client = new SpringDirectorClientBuilder();
-  ATC atc = new ATC();
+  ATC atc = new ATC(); 
   
   public static boolean scaleUp(){
     boolean scaledUp = false
@@ -49,7 +49,6 @@ public class autoScaling {
   
   public static void main(String args[])
   {
-    atc.scaleUp();
     
     
           
