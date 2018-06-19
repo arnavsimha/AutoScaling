@@ -21,7 +21,7 @@ public class autoScaling {
         external_workers_added += 1;
       }
       if(external_workers_added > 8){
-        continue;
+        break;
       }
     }
     return scaledUp;
