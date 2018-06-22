@@ -1,6 +1,6 @@
 import yaml
 
-//print yaml file
+#print yaml file
 with open("example.yaml", 'r') as stream:
     try:
         print(yaml.load(stream))
