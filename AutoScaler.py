@@ -1,5 +1,6 @@
 import yaml
 
+#set function to get bosh worker info
 def get_account_info():
 
     api_url = '{0}account'.format(api_url_base)
@@ -12,11 +13,12 @@ def get_account_info():
         return None
 
 #print yaml file
-with open("example.yaml", 'r') as stream:
-        try:
-            YML = yaml.load(stream)
-        except yaml.YAMLError as exc:
-            print(exc)
+def read_file():
+    with open("example.yaml", 'r') as stream:
+            try:
+                YML = yaml.load(stream)
+            except yaml.YAMLError as exc:
+                print(exc)
 #iterate through Yaml file
 from ruamel.yaml import YAML
 
