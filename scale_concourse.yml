@@ -1,0 +1,64 @@
+bosh:
+
+dev:
+  bosh_path: /usr/local/bin/bosh
+  bosh_deployment_configuration_file: bosh-config.yml
+  bosh_environment: bosh-dev
+  bosh_external_deployment_name: concourse-ext-worker
+  bosh_external_worker_configuration: external-worker.yml
+  max_number_external_workers: 4
+  awk_path: awk
+  fly_path: fly
+  increment_by: 1 
+  decrease_by: 1
+  #max_containers_for_add: 180
+  #max_containers_for_remove: 140
+  my_email: devConcourse@motorolasolutions.com
+  to_emails: [arnav.simha@motorolasolutions.com]  
+  runningTime: 1800
+  addThreshold: 16 
+  removeThreshold: 4 
+  averageThreshold: 15 
+
+
+sbox:
+  bosh_path: bosh
+  bosh_cli: #((optional))
+  bosh_deployment_configuration_file: bosh-config.yml
+  bosh_environment: bosh-dev
+  bosh_external_deployment_name: concourse-ext-worker
+  bosh_external_worker_configuration: external-worker.yml
+  max_number_external_workers: 4
+  awk_path: awk
+  fly_path: fly
+  increment_by: 2
+  decrease_by: 1
+  max_containers_for_add: 180
+  max_containers_for_remove: 140
+  my_email: sboxConcourse@motorolasolutions.com
+  your_email: [arnav.simha@motorolasolutions.com]
+  runningTime: 1800
+  addThreshold: 180
+  removeThreshold: 140
+  averageThreshold: 160
+
+prod:
+  bosh_path: bosh
+  bosh_cli: #((optional))
+  bosh_deployment_configuration_file: bosh-config.yml
+  bosh_environment: bosh-dev
+  bosh_external_deployment_name: concourse-ext-worker
+  bosh_external_worker_configuration: external-worker.yml
+  max_number_external_workers: 4
+  awk_path: awk
+  fly_path: fly
+  increment_by: 2
+  decrease_by: 1
+  max_containers_for_add: 180
+  max_containers_for_remove: 140
+  my_email: prodConcourse@motorolasolutions.com
+  your_email: [arnav.simha@motorolasolutions.com]
+  runningTime: 1800
+  addThreshold: 180
+  removeThreshold: 140
+  averageThreshold: 160
