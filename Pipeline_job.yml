@@ -1,0 +1,249 @@
+resources:
+- name: arcusTest-git
+  type: git
+  source:
+    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/camtest/arcustest.git
+    branch: master
+    username: GTJM78
+    password: Redredmagic1
+- name: pullRequest-git
+  type: git
+  source:
+    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/camtest/bitbucket-pullrequest-resource.git
+    branch: master
+    username: GTJM78
+    password: Redredmagic1
+- name: pullRequestold-git
+  type: git
+  source:
+    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/camtest/concourse-bitbucket-pullrequest-resource-old.git
+    branch: master
+    username: GTJM78
+    password: Redredmagic1
+- name: resource
+  type: git
+  source:
+    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/camtest/demo.git
+    branch: master
+    username: GTJM78
+    password: Redredmagic1
+- name: testapp-git
+  type: git
+  source:
+    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/camtest/testapp.git
+    branch: master
+    username: GTJM78
+    password: Redredmagic1
+#second Job
+- name: notary-test-git
+  type: git
+  source:
+    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/camtest/notary-test.git
+    branch: master
+    username: GTJM78
+    password: Redredmagic1
+- name: notary-docker-git
+  type: git
+  source:
+    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/camtest/notary-docker-image.git
+    branch: master
+    username: GTJM78
+    password: Redredmagic1
+- name: csk-git
+  type: git
+  source:
+    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/ittest/csk026_repository.git
+    branch: master
+    username: GTJM78
+    password: Redredmagic1
+#- name: resource_fourth2
+#  type: git
+#  source:
+#    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/ittest/test_jenkins_bb_trigger.git
+#    branch: master
+#    username: GTJM78
+#    password: Redredmagic1
+- name: scripts-git
+  type: git
+  source:
+    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/ittest/miscellaneous_scripts.git
+    branch: master
+    username: GTJM78
+    password: Redredmagic1
+
+#third job
+
+- name: vendor-moto-git
+  type: git
+  source:
+    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/ittest/project-android-vendor-moto.git
+    branch: master
+    username: GTJM78
+    password: Redredmagic1
+
+- name: netcool-git
+  type: git
+  source:
+    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/netcool-sandbox/netcool.git
+    branch: master
+    username: GTJM78
+    password: Redredmagic1
+- name: cms-git
+  type: git
+  source:
+    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/rm/cms.git
+    branch: master
+    username: GTJM78
+    password: Redredmagic1
+- name: isgw-git
+  type: git
+  source:
+    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/tcp/isgw-bar.git
+    branch: master
+    username: GTJM78
+    password: Redredmagic1
+#fourth job
+#- name: job4_resource1
+#  type: git
+#  source:
+#    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/cam_apps/git-repo.git
+#    branch: master
+#    username: GTJM78
+#    password: Redredmagic1
+#- name: job4_resource2
+#  type: git
+#  source:
+#    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/pos/postumus.git
+#    branch: master
+#    username: GTJM78
+#    password: Redredmagic1
+#- name: job4_resource3
+#  type: git
+#  source:
+#    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/tcp/wave7k-server-toolchain.git
+#    branch: master
+#    username: GTJM78
+#    password: Redredmagic1
+#- name: job4_resource5
+#  type: git
+#  source:
+#    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/tprf/perf.git
+#    branch: master
+#    username: GTJM78
+#    password: Redredmagic1
+#
+#
+
+jobs:
+- name: Build
+  public: true
+  plan:
+  - get: arcusTest-git
+  - get: pullRequest-git
+  - get: pullRequestold-git
+  - get: resource
+    trigger: true
+  - get: testapp-git
+#  - task: hello-world-sleep
+#    config:
+#      platform: linux
+#      image_resource:
+#        type: docker-image
+#        source: {repository: ubuntu}
+#      run:
+#        path: bash
+#        args: 
+#        - -exc
+#        - | 
+#          echo "Hello World" 
+#          sleep 10
+- name: Validation
+  public: true
+  plan:
+  - get: notary-test-git
+    trigger: true
+  - get: notary-docker-git
+    trigger: true
+  - get: csk-git
+    trigger: true
+  - get: resource
+    passed: [Build]
+  - get: scripts-git
+    trigger: true
+  - task: hello-world-sleep2
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: ubuntu}
+      run:
+        path: bash
+        args:
+        - -exc
+        - |
+          echo "Hello World"
+          sleep 150
+
+- name: Static-Analysis
+  public: true
+  plan:
+  - get: vendor-moto-git
+    trigger: true
+  - get: netcool-git
+    trigger: true
+  - get: cms-git
+    trigger: true
+  - get: csk-git
+    passed: [Validation]
+  - get: isgw-git
+  - task: hello-world-sleep3
+    config:
+      platform: linux
+      image_resource:
+        type: docker-image
+        source: {repository: ubuntu}
+      run:
+        path: bash
+        args:
+        - -exc
+        - |
+          echo "Hello World"
+          sleep 15
+
+
+#  - task: hello-world-sleep3
+#    config:
+#      platform: linux
+#      image_resource:
+#        type: docker-image
+#        source: {repository: ubuntu}
+#      run:
+#        path: bash
+#        args:
+#        - -exc
+#        - |
+#          echo "Hello World"
+#          sleep 10
+
+#- name: Demo_job4
+#  public: true
+#  plan:
+#  - get: job4_resource1
+#  - get: job4_resource2
+#  - get: job4_resource3
+#  - get: job3_resource3
+#    passed: [Demo_job4]
+#  - get: job4_resource5
+#  - task: hello-world-sleep4
+#    config:
+#      platform: linux
+#      image_resource:
+#        type: docker-image
+#        source: {repository: ubuntu}
+#      run:
+#       path: bash
+#        args:
+#        - -exc
+#        - |
+#          echo "Hello World"
+#          sleep 10
