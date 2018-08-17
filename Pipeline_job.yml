@@ -5,35 +5,35 @@ resources:
     uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/camtest/arcustest.git
     branch: master
     username: GTJM78
-    password: Redredmagic1
+    password: 
 - name: pullRequest-git
   type: git
   source:
     uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/camtest/bitbucket-pullrequest-resource.git
     branch: master
     username: GTJM78
-    password: Redredmagic1
+    password: 
 - name: pullRequestold-git
   type: git
   source:
     uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/camtest/concourse-bitbucket-pullrequest-resource-old.git
     branch: master
     username: GTJM78
-    password: Redredmagic1
+    password: 
 - name: resource
   type: git
   source:
     uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/camtest/demo.git
     branch: master
     username: GTJM78
-    password: Redredmagic1
+    password: 
 - name: testapp-git
   type: git
   source:
     uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/camtest/testapp.git
     branch: master
     username: GTJM78
-    password: Redredmagic1
+    password: 
 #second Job
 - name: notary-test-git
   type: git
@@ -41,35 +41,35 @@ resources:
     uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/camtest/notary-test.git
     branch: master
     username: GTJM78
-    password: Redredmagic1
+    password: 
 - name: notary-docker-git
   type: git
   source:
     uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/camtest/notary-docker-image.git
     branch: master
     username: GTJM78
-    password: Redredmagic1
+    password: 
 - name: csk-git
   type: git
   source:
     uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/ittest/csk026_repository.git
     branch: master
     username: GTJM78
-    password: Redredmagic1
+    password: 
 #- name: resource_fourth2
 #  type: git
 #  source:
 #    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/ittest/test_jenkins_bb_trigger.git
 #    branch: master
 #    username: GTJM78
-#    password: Redredmagic1
+#    password: 
 - name: scripts-git
   type: git
   source:
     uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/ittest/miscellaneous_scripts.git
     branch: master
     username: GTJM78
-    password: Redredmagic1
+    password: 
 
 #third job
 
@@ -79,7 +79,7 @@ resources:
     uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/ittest/project-android-vendor-moto.git
     branch: master
     username: GTJM78
-    password: Redredmagic1
+    password: 
 
 - name: netcool-git
   type: git
@@ -87,21 +87,21 @@ resources:
     uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/netcool-sandbox/netcool.git
     branch: master
     username: GTJM78
-    password: Redredmagic1
+    password: 
 - name: cms-git
   type: git
   source:
     uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/rm/cms.git
     branch: master
     username: GTJM78
-    password: Redredmagic1
+    password: 
 - name: isgw-git
   type: git
   source:
     uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/tcp/isgw-bar.git
     branch: master
     username: GTJM78
-    password: Redredmagic1
+    password: 
 #fourth job
 #- name: job4_resource1
 #  type: git
@@ -109,28 +109,28 @@ resources:
 #    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/cam_apps/git-repo.git
 #    branch: master
 #    username: GTJM78
-#    password: Redredmagic1
+#    password: 
 #- name: job4_resource2
 #  type: git
 #  source:
 #    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/pos/postumus.git
 #    branch: master
 #    username: GTJM78
-#    password: Redredmagic1
+#    password: 
 #- name: job4_resource3
 #  type: git
 #  source:
 #    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/tcp/wave7k-server-toolchain.git
 #    branch: master
 #    username: GTJM78
-#    password: Redredmagic1
+#    password: 
 #- name: job4_resource5
 #  type: git
 #  source:
 #    uri: https://GTJM78@bitbucket-sbox.mot-solutions.com/scm/tprf/perf.git
 #    branch: master
 #    username: GTJM78
-#    password: Redredmagic1
+#    password: 
 #
 #
 
